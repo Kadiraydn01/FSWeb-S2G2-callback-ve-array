@@ -125,11 +125,23 @@ console.log(sentences);
 	💡 İPUCU: .reduce, .toFixed (dizilim(syntax) için MDN'ye bakın) kullan, ve bunu 2 adımda yapın) 
 	
 */
-
-function OrtalamaGolSayisi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function OrtalamaGolSayisi(callback) {
+  const matches = callback(fifaData);
+  const totalHomeGoals = matches.reduce(
+    (total, match) => total + match["Home Team Goals"],
+    0
+  );
+  const totalAwayGoals = matches.reduce(
+    (total, match) => total + match["Away Team Goals"],
+    0
+  );
+  const totalGoals = totalHomeGoals + totalAwayGoals;
+  const averageGoals = totalGoals / matches.length;
+  const roundedAverage = Math.round(averageGoals * 100) / 100;
+  return roundedAverage;
 }
-
+const averageGoals = OrtalamaGolSayisi(Finaller);
+console.log(averageGoals);
 /// EKSTRA ÇALIŞMALAR ///
 
 /*  BONUS 1:  
