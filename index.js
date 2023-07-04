@@ -101,17 +101,17 @@ console.log(winners);
 */
 
 function YillaraGoreKazananlar(fifaData, Finaller, Yillar, Kazananlar) {
-  const finalMatches = Finaller(fifaData);
-  const finalYears = Yillar(fifaData, Finaller);
-  const winners = Kazananlar(fifaData, Finaller);
-  const sentences = finalYears.map((year, index) => {
-    const country = winners[index];
-    return `${year} yılında, ${country} dünya kupasını kazandı!`;
+  const finalMaclari = Finaller(fifaData);
+  const finalYillari = Yillar(fifaData, Finaller);
+  const kazanan1 = Kazananlar(fifaData, Finaller);
+  const sonuc = finalYillari.map((yil, index) => {
+    const ulke = kazanan1[index];
+    return `${yil} yılında, ${ulke} dünya kupasını kazandı!`;
   });
-  return sentences;
+  return sonuc;
 }
-const sentences = YillaraGoreKazananlar(fifaData, Finaller, Yillar, Kazananlar);
-console.log(sentences);
+const sonuc = YillaraGoreKazananlar(fifaData, Finaller, Yillar, Kazananlar);
+console.log(sonuc);
 /*  Görev 6: 
 	Bir higher order fonksiyonu olan `OrtalamaGolSayisi` isimli fonksiyona aşağıdakileri uygulayın: 
 	1. Görev 2'de yazdığınız `Finaller` fonksiyonunu birinci parametre olarak alacak; 'fifaData' dizisini argüman olarak eklediğinizden emin olun
